@@ -1,6 +1,8 @@
 class Solution(object):
-    s = "ILV"
+    s = "MCMXCVII"
+
     def romanToInt(self, s):
+        numbers = []
         """
         :type s: str
         :rtype: int
@@ -13,22 +15,12 @@ class Solution(object):
             "C":100,
             "D":500,
             "M":1000, }
-        l = len(s)
 
+        s.replace("IV","IIII").replace("IX","VIIII").replace("XL","XXXX").replace("XC","LXXXX").replace("CD","CCCC").replace("CM","DCCCC")
         for item in s:
+            numbers.append(roman_dict[item])
 
-            if roman_dict.get(s[l-1]) > roman_dict.get(s[l-2]):
-                a =roman_dict.get(s[l-1]) - roman_dict.get(s[l-2])
-
-            else:
-                a = roman_dict.get(s[l - 1]) + roman_dict.get(s[l - 2])
-
-
-        return a
-
-
-
-
+        return sum(numbers)
 
     print(romanToInt(None,s))
                 
